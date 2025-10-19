@@ -6,7 +6,7 @@ const app = express();
 // إعدادات خادم البث
 const config = {
   rtmp: {
-    port: 1935,
+    port: 3000,
     chunk_size: 60000,
     gop_cache: true,
     ping: 30,
