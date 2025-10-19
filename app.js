@@ -1,11 +1,31 @@
 const express = require('express');
+const NodeMediaServer = require('node-media-server');
+
 const app = express();
-const PORT = process.env.PORT || 3000;
+
+// إعدادات خادم البث
+const config = {
+  rtmp: {
+    port: 1935,
+    chunk_size: 60000,
+    gop_cache: true,
+    ping: 30,
+    ping_timeout: 60
+  },
+  http: {
+    port: 8000,
+    allow_origin: '*'
+  }
+};
+
+var nms = new NodeMediaServer(config);
+nms.run();
 
 app.get('/', (req, res) => {
-  res.send('🚀 سيرفر Omar.Cam جاهز للبث المباشر!');
+  res.send('🚀 سيرفر البث المباشر جاهز! استخدم port 1935 للبث');
 });
 
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log('✅ السيرفر شغال!');
+  console.log('✅ سيرفر البث شغال!');
 });
