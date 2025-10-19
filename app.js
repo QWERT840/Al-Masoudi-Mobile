@@ -22,10 +22,10 @@ var nms = new NodeMediaServer(config);
 nms.run();
 
 app.get('/', (req, res) => {
-  res.send('🚀 سيرفر البث المباشر جاهز! استخدم port 1935 للبث');
+  res.send('🚀 سيرفر البث المباشر جاهز! استخدم port 3000 للبث');
 });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log('✅ سيرفر البث شغال!');
+  console.log('✅ سيرفر البث شغال على port 3000!');
 });
